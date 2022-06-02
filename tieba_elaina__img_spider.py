@@ -33,15 +33,12 @@ class TieBa(object):
             'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
             'Cookie': 'BAIDUID=E4C838C3501C8DDB8BA0B1AC7BE649A2:FG=1; tb_as_data=316b2a3b99171901aac663f4ee87b664f9e3effac4fe79948c1e61a48a85cb3e2c440a5a4f0f9eaaeade2b8bab0529c6fe625948f767f176c966778c6abf8665fab0c50d8c3f9d6c8e84953ca085cab9c34abd599b52e47d18d0f367d38803e412a9d1c6fdb31241536a296f1a98fdff; Hm_lvt_98b9d8c2fd6608d564bf2ac2ae642948=1654101562; Hm_lpvt_98b9d8c2fd6608d564bf2ac2ae642948=1654101562; st_data=e8c6cc91616efa911517547d5e636a822a60026d56191d0d6af61c4e4d04fd09874dbb63ef6251200f72fa98b562e6c33ad868b6acde7f91eb923ccf47259d945053af464a09a18bbd63f6fe5905f4132d424cf32f195ab5078e11d350c115fa; st_key_id=17; st_sign=16072291'
         }
-        pass
 
     def get_data(self, url):
         response = requests.get(url, headers=self.headers)
         # with open('tieba.html', 'w', encoding='utf-8') as f:
         #     f.write(response.content.decode())
         return response.content
-
-        pass
 
     def parse_data(self, results):
         # 解析获取到的网页数据，提取，返回帖子列表，和下一页链接
@@ -79,7 +76,6 @@ class TieBa(object):
             else:
                 return image_list
                 # print(imge_list)
-        pass
 
     def save_img(self, image_list):
         try:
@@ -92,7 +88,6 @@ class TieBa(object):
                     f.write(image_bytes)
         except:
             pass
-        pass
 
     def run(self):
         url = self.url
@@ -109,7 +104,10 @@ class TieBa(object):
                     image_list = self.parse_detail(detail_data)
                     self.save_img(image_list)
                     # print(detail_data)
-        pass
+            if not next_url:
+                break
+            else:
+                url = next_url
 
 if __name__ == '__main__':
     tieba = TieBa()
