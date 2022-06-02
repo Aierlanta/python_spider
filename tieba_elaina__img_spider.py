@@ -22,12 +22,13 @@ http://tiebapic.baidu.com/.+
 在每页帖子图片爬完以后，翻页
 '''
 
-import requests, re
+import requests, re, os
 from lxml import etree
 
 class TieBa(object):
 
     def __init__(self):
+        # 如果想要爬其他的吧，可以在初始化函数中加入吧名参数，然后作为变量引入要爬的吧，和作为要保存的文件夹名
         self.url = 'http://c.tieba.baidu.com/f?kw=%E4%BC%8A%E8%95%BE%E5%A8%9C'
         self.headers = {
             'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
@@ -78,10 +79,13 @@ class TieBa(object):
 
     def save_img(self, image_list):
         try:
+            # 创建文件夹
+            if not os.path.exists('elaina_img'):
+                os.mkdir('elaina_img')
             for img_url in image_list:
                 image_bytes = self.get_data(img_url)
                 image_name1 = img_url.split('?')[0]
-                image_name2 = image_name1.split('/')[-1]
+                image_name2 = 'elaina_img' + os.sep +  image_name1.split('/')[-1]
                 # print(image_name2)
                 with open(image_name2, 'wb') as f:
                     f.write(image_bytes)
