@@ -17,3 +17,5 @@ Kr36_spider.py  爬取36kr新闻站的爬虫，复习正则使用
 haoduanzi_spider.py  爬取好段子网站（但这个站目前看来似乎已经废了），用于练习xpath
 
 tieba_elaina__img_spider.py  用来爬伊雷娜吧的所有图片的爬虫，当然，如果改一下贴吧的url应该也是可以爬其他的吧的
+
+iframe-qzone.py  用来练习selenium和iframe框架,模拟登录qq空间（当然，因为ip异常等问题强制要求二维码暂时没辙）
