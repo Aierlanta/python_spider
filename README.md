@@ -1,12 +1,12 @@
 # python_spider
-学习爬虫的记录
+**学习爬虫的记录**
 这个仓库用于记录学习爬虫过程中的一些过程
 （然后，感谢这个过程中大佬们和好朋友们的的指点qwq）
 
 
-# 代码内容说明
+# 关于这个仓库
 
-novel_spider  预定的将要爬取http://trxs.cc小说站，打算近期开工
+novel_spider  预定的将要爬取http://trxs.cc 小说站，打算近期开工
 
 tieba_spider_optimize.py  可以通过输入吧名和页码来爬取对应贴吧的页面，并保存为html文件至改代码的目录下，没什么实际用处
 
